@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 
 
 class TaskCreate(BaseModel):
@@ -20,7 +20,7 @@ class TaskResponse(BaseModel):
     description: Optional[str]
     completed: bool
     created_at: datetime
-    updated_at: Optional[datetime]
+    updated_at: datetime
     owner_id: int
 
     class Config:
@@ -28,7 +28,7 @@ class TaskResponse(BaseModel):
 
 
 class PaginatedTasksResponse(BaseModel):
-    tasks: list[TaskResponse]
+    tasks: List[TaskResponse]
     total: int
     page: int
     page_size: int
